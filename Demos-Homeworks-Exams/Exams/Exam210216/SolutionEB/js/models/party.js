@@ -29,9 +29,9 @@ var app = app || {};
     };
 
     Party.prototype.setIsBirthday = function(isBirthday) {
-        // Validators.validateBoolean(hasElevator, "hasElevator");
-        Validators.validateBoolean(isBirthday, "isBirthday");
-        this._isBirthday = isBirthday;
+        //Validators.validateBoolean(isBirthday, "isBirthday");
+        var bool = Boolean(isBirthday);
+        this._isBirthday = bool;
     };
 
     Party.prototype.checkIsCatered = function() {
@@ -39,9 +39,9 @@ var app = app || {};
     };
 
     Party.prototype.setIsCatered = function(isCatered) {
-        // Validators.validateBoolean(hasElevator, "hasElevator");
-        Validators.validateBoolean(isCatered, "isCatered");
-        this._isCatered = isCatered;
+        //Validators.validateBoolean(isCatered, "isCatered");
+        var bool = Boolean(isCatered);
+        this._isCatered = bool;
     };
 
     Party.prototype.getOrganiser = function() {
