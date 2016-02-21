@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset = "utf-8"/>
+    <title>JavaScript Exceptions - Throwing Exception</title>
+</head>
+
+<body>
+    <script type = "text/javascript">
+        console.log('WRONG');
+        throw 'Something is going wrong!';
+        //WRONG: Don't throw string or other objects
+    </script>
+    <script type = "text/javascript">
+        console.log('WRONG');
+        //WRONG: Don't throw string or other objects
+        throw true;
+    </script>
+    <script type = "text/javascript">
+		throw new TypeError('Not corect use of an object');
+    </script>
+    <script type = "text/javascript">
+		throw new ReferenceError('No existing function');
+    </script>
+    <script type = "text/javascript">
+		throw new SyntaxError('Syntax is not valid');
+    </script>
+    <script type = "text/javascript">
+                console.log('Custom error');
+                throw {message: 'This is custom error.'};
+    </script>
+</body>
+
+</html>

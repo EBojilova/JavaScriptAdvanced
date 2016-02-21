@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <title>JavaScript Event Model - The Event Object</title>
+</head>
+<body>
+    <h1>Click to see the Event Properties in the Console</h1>
+    <button class = "button"
+            id = "button">Click me!</button>
+
+    <script type = "text/javascript">
+        var button = document.getElementById("button");
+        // domElement.addEventListener(eventType, eventHandler, isCaptureEvent)
+        //isCaptureEvent: catch the "capture" or "bubbling" phase
+        //http://www.w3schools.com/js/tryit.asp?filename=tryjs_addeventlistener_usecapture
+
+        button.addEventListener("click", function(event) {
+                if (!event) {
+                        event = window.event;
+                }
+
+                // Show mouse coordinates
+                console.log("Mouse coordinates:");
+                console.log(event.clientX);
+                console.log(event.clientY);
+
+                // Show event target
+                console.log("Event target:");
+                var currentTarget = event.target || event.srcElement;
+                console.log(currentTarget);
+
+                // Show event type
+                console.log("Event type:");
+                console.log(event.type);
+
+                // Show "event" object properties
+                console.log('Whole "event" object:');
+                console.log(event);
+        }, false);
+
+        // gornoto savpada s
+//        button.onclick = function(event) {
+//                if (!event) {
+//                        event = window.event;
+//                }
+//
+//                // Show mouse coordinates
+//                console.log("Mouse coordinates:");
+//                console.log(event.clientX);
+//                console.log(event.clientY);
+//
+//                // Show event target
+//                console.log("Event target:");
+//                var currentTarget = event.target || event.srcElement;
+//                console.log(currentTarget);
+//
+//                // Show event type
+//                console.log("Event type:");
+//                console.log(event.type);
+//
+//                // Show "event" object properties
+//                console.log('Whole "event" object:');
+//                console.log(event);
+//        };
+    </script>
+</body>
+</html>

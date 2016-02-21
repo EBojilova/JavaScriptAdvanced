@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+	<title>DOM Manipulation - QuerySelector</title>
+</head>
+<body>
+	<header>
+		<nav id = "main-nav">
+			<ul>
+				<li>
+					<a href = "#">Home</a>
+				</li>
+				<li>
+					<a href = "#">Profile</a>
+				</li>
+				<li>
+					<a href = "#">Friends</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+        <footer><h2>Look at the Console</h2></footer>
+	<script>			
+		// na jQuery se pishe var mainNav = $.('#main-nav');
+                var mainNav = document.querySelector('#main-nav');
+                console.log(mainNav);
+                // moje i var navItems = mainNav.querySelectorAll('ul > li > a');
+                var navItems = document.querySelectorAll('#main-nav ul > li > a');
+                for (var i = 0; i < navItems.length; i++) {
+                        console.log('This is item #' + i + ' : ' + navItems[i].innerHTML)
+                }
+                // vrasta samo parviat li, koito e nameren
+                var firstLi = document.querySelector('#main-nav ul > li > a');
+                console.log('This is first "li": '+ firstLi.innerHTML)
+
+                // Other examples:
+                var tableCells = document.querySelectorAll('table tr td');
+                var selectedLi = document.querySelector('menu > li.selected');
+                var specialLinks = document.querySelectorAll('a.special');
+	</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+    <title>DOM Traversing</title>
+</head>
+<body>
+    <header>
+        <!--davame vsichko na 1 red za da rabotiat firstChild, lastChild......., no e nechetim HTML, zatova e -->
+        <!--jelatelno da ne polzvame tezi metodi-->
+        <nav id = "main-nav"><ul><li><a href = "#">Home</a></li><li><a href = "#">Profile</a></li><li><a href = "#">Friends</a></li></ul></nav>
+        <form>
+            <input type = "text"
+                   name = "Username"
+                   value = "Enter username "/>
+        </form>
+    </header>
+    <footer><h2>Look at the Console</h2></footer>
+    <script>
+        var mainNav = document.querySelector('#main-nav');
+        var parent = mainNav.parentNode;
+        log(parent);
+        log("parent of #main-nav: " + parent.nodeName +
+            " with id: " + parent.id);
+
+        var ul=document.querySelector('ul');
+        var children = ul.childNodes;
+        log(children);
+        log("children count in #main-nav: " + children.length);
+        log("children in #main-nav");
+        for(var i in children) {
+            log(children[i].nodeName + " content: " + children[i].innerText);
+        }
+
+        var firstChild = ul.firstChild;
+        log(firstChild.innerHTML);
+        var lastChild = ul.lastChild;
+        log(lastChild.innerHTML);
+
+        var navItem = children[1];
+        console.log(navItem);
+        var previousSubling = navItem.previousSibling;
+        log(previousSubling.innerHTML);
+        var nextSubling = navItem.nextSibling;
+        console.log(nextSubling.innerHTML);
+
+
+        function log(message){
+            console.log(message);
+        }
+    </script>
+</body>
+</html>

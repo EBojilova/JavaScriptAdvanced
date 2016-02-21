@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html xmlns = "http://www.w3.org/1999/xhtml">
+<head>
+    <title>DOM Manipulation - NodeLists</title>
+    <style>
+        div
+        {
+            text-align    : center;
+            margin        : 10px;
+            display       : inline-block;
+            width         : 120px;
+            height        : 120px;
+            zoom          : 1;
+            border        : 1px solid black;
+            border-radius : 5px;
+        }
+
+        main
+        {
+            display : flex;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <section>
+            <div>
+                В почивката
+            </div>
+        </section>
+    </header>
+    <main>
+        <div>
+            Отидете
+        </div>
+        <div>
+            до лафката
+        </div>
+        <div>
+            и си вземете вода!
+        </div>
+    </main>
+    <script>
+    // Live lists keep track of the selected elements, even when changes are made to the DOM, but
+    // is slower than regular Array
+    // Need to cache its length for better performance
+    var divsLive = document.getElementsByTagName('div');
+    console.log(divsLive);
+    console.log('divsLive instanceof Array');
+    console.log(divsLive instanceof Array); // false
+    console.log('divsLive instanceof HTMLCollection');
+    console.log(divsLive instanceof HTMLCollection); // true
+    for (var index in divsLive) {
+        if (divsLive.hasOwnProperty(index)) {
+            console.log('divs[' + index + '] = ' + divsLive[index]);
+            //divsLive[index].innerText = "Hi, it's me!"
+        }
+    }
+    var divsStatic = document.querySelectorAll('div');
+    console.log(divsStatic);
+    console.log('divsStatic instanceof Array');
+    console.log(divsStatic instanceof Array);
+    console.log('divsStatic instanceof HTMLCollection');
+    console.log(divsStatic instanceof HTMLCollection);
+    for (var index in divsStatic) {
+        if (divsStatic.hasOwnProperty(index)) {
+            console.log('divs[' + index + '] = ' + divsStatic[index]);
+        }
+    }
+
+    </script>
+</body>
+</html>

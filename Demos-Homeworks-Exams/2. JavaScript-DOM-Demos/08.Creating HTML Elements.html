@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Creating HTML Elements</title>
+    <style>
+        div
+        {
+                display: inline-block;
+                width: 75px;
+                height: 75px;
+                zoom: 1;
+                border: 1px solid black;
+                border-radius: 5px;
+                margin: 4px;
+                background-color: yellow;
+        }
+
+        .lamp-off
+        {
+                background: url('images/lamp-off.png') no-repeat;
+                background-size: 100% 100%;
+        }
+
+        .lamp-on
+        {
+                background: url('images/lamp-on.png') no-repeat;
+                background-size: 100% 100%;
+        }
+
+        body
+        {
+                display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="#"
+           onclick="onAddLampOffButtonClick()">Add lamp-off</a>
+    </div>
+    <div>
+        <a href="#"
+           onclick="onAddLampOnButtonClick()">Add lamp-on</a>
+    </div>
+
+    <div class="lamp-off"></div>
+    <div class="lamp-on"></div>
+    <div class="lamp-off"></div>
+
+    <script>
+        function onAddLampOnButtonClick() {
+                var div = document.createElement('div');
+                div.className = 'lamp-on';
+                document.body.appendChild(div);
+        }
+        function onAddLampOffButtonClick() {
+                var div = document.createElement('div');
+                div.className = 'lamp-off';
+                document.body.appendChild(div);
+        }
+    </script>
+</body>
+</html>

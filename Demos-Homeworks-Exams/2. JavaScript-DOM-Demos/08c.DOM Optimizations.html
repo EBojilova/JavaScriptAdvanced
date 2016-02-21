@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>DOM optimizations</title>
+</head>
+<body>
+    <script>
+//      var div = document.createElement('div');
+//      var dFrag = document.createDocumentFragment();
+//      dFrag.appendChild(div);
+//
+//      document.body.appendChild(dFrag);
+
+      var studentsList = document.createElement("ul");
+        var liElement = document.createElement("li");
+        liElement.innerHTML = "Student: Pesho";
+        studentsList.appendChild(liElement);
+        liElement = document.createElement("li");
+        liElement.innerHTML = "Student: Helen";
+        studentsList.appendChild(liElement);
+        liElement = document.createElement("li");
+        liElement.innerHTML = "Student: Genka";
+        studentsList.appendChild(liElement);
+      console.log(document.body.innerHTML);
+      document.body.appendChild(studentsList);
+      console.log(document.body.innerHTML);
+
+    </script>
+</body>
+</html>

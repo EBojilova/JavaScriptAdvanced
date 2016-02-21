@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset = "UTF-8">
+    <title>JavaScript Event Model - The Event Chain</title>
+</head>
+
+<body>
+        <button id = "btn">SEND</button>
+    <script>
+            var dispatcher=document.body;
+            document.getElementById('btn').onclick=SendMessage;
+
+            // new message: raise newMessage event
+            function SendMessage(event) {
+                    var customEvent = new CustomEvent("newMessage");
+                    dispatcher.dispatchEvent(customEvent);
+            }
+
+            // listen for newMessage event
+            dispatcher.addEventListener("newMessage", newMessageHandler, false);
+
+            // newMessage event handler
+            function newMessageHandler(event) {
+                    alert(
+                            "Event subscriber on " + event.currentTarget.nodeName
+                    );
+            }
+    </script>
+</body>
+
+</html>

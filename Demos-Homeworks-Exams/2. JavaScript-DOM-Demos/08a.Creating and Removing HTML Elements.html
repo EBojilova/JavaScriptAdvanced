@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Creating HTML Elements</title>
+</head>
+<body>
+    <script>
+        var studentsList = document.createElement("ul");
+        var liElement = document.createElement("li");
+        liElement.innerHTML = "Student: Pesho";
+        studentsList.appendChild(liElement);
+        liElement = document.createElement("li");
+        liElement.innerHTML = "Student: Helen";
+        studentsList.appendChild(liElement);
+        liElement = document.createElement("li");
+        liElement.innerHTML = "Student: Genka";
+        studentsList.appendChild(liElement);
+        document.body.appendChild(studentsList);
+
+
+        var allStudents = document.getElementsByTagName('ul')[0];
+        console.log(allStudents)
+        liElement = document.createElement("li");
+        liElement.innerHTML = "Student: Helen Inserted";
+        allStudents.insertBefore(liElement, allStudents.childNodes[1]);
+
+        // Remove element from its parent
+        allStudents.removeChild(allStudents.firstChild);
+
+        // Remove a selected element
+        var selectedElement = allStudents.lastChild;
+        selectedElement.parentNode.removeChild(selectedElement);
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset = "UTF-8">
+    <title>JavaScript Event Model - The Event Chain</title>
+    <script src = "scripts/cross-browser-events.js"></script>
+</head>
+
+<body>
+    <form id = "msgbox"
+          action = "#"
+          method = "get">
+        <label for = "msg">your message</label>
+        <input id = "msg"
+               value = ""/>
+        <button>SEND</button>
+    </form>
+    <script>
+        //http://www.sitepoint.com/javascript-custom-events/
+        var msgbox = document.getElementById("msgbox");
+        msgbox.addEventListener("submit", SendMessage, false);
+
+        // new message: raise newMessage event
+        function SendMessage(event) {
+
+                event.preventDefault();
+                var msg = document.getElementById("msg")
+                                  .value
+                                  .trim();
+
+                // without custom event
+                // We can write a handler to echo messages to the screen when that form is submitted, e.g.
+                //if (msg) {
+                //        alert(msg);
+                //}
+
+                if (msg && window.CustomEvent) {
+                        var customEvent = new CustomEvent("newMessage", {
+                                detail    : {
+                                        message: msg,
+                                        time   : new Date()
+                                },
+                                bubbles   : true,
+                                cancelable: true
+                        });
+
+                        event.currentTarget.dispatchEvent(customEvent);
+                }
+
+        }
+
+        // listen for newMessage event
+        document.addEventListener("newMessage", newMessageHandler, false);
+
+        // newMessage event handler
+        function newMessageHandler(event) {
+                alert(
+                        "Event subscriber on " + event.currentTarget.nodeName + ", "
+                        + event.detail.time.toLocaleString() + ": " + event.detail.message
+                );
+        }
+    </script>
+</body>
+
+</html>
