@@ -29,7 +29,7 @@ var app = app || {};
     };
 
     Hall.prototype.setCapacity = function(capacity) {
-        Validators.validateInteger(capacity);
+        Validators.validateInteger(capacity, 'capacity');
         this._capacity = capacity;
     };
     //addEvent – Adds a new event (Party/Lecture) to the corresponding property (parties or lectures).

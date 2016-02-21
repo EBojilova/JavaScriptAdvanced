@@ -25,7 +25,7 @@ var app = app || {};
     };
     
     Course.prototype.setNumberOfLectures = function(numberOfLectures) {
-        Validators.validateInteger(numberOfLectures);
+        Validators.validateInteger(numberOfLectures,'numberOfLectures');
         this._numberOfLectures = numberOfLectures;
     };
     

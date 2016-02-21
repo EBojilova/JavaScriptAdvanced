@@ -35,11 +35,11 @@ var Validators = {
 
     validateString: function(string) {
         //A string (only letters and whitespace)
-        var regex = /[a-zA-Z\s]+/i;
+        var regex = /^[a-zA-Z\s]+$/i;
         var isOnlyLetters = regex.test(string);
 
         if (!isOnlyLetters) {
-            throw new SyntaxError('Invalid color: color must be in hex format!');
+            throw new SyntaxError('A string should have only letters and whitespace');
         }
     },
 

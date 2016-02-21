@@ -25,7 +25,7 @@ var app = app || {};
     };
 
     Employee.prototype.setWorkhours = function(workHours) {
-        Validators.validateInteger(workHours);
+        Validators.validateInteger(workHours, 'workHours');
         this._workHours = workHours;
     };
 

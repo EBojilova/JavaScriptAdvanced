@@ -49,7 +49,7 @@ var app = app || {};
     };
 
     Event.prototype.setDuration = function(duration) {
-        Validators.validateInteger(duration);
+        Validators.validateInteger(duration, 'duration');
         this._duration = duration;
     };
     
